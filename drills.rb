@@ -52,28 +52,42 @@ end
   # echoes the original word
   # repeats the original word 3 times
   # returns a string with the word repeated
+def polly_wanna(str, n = 3)
+  str * n
+end
 
 #count_chars
   # takes in a word
   # returns the number of characters in the word
-
+def count_chars(str)
+  str.length
+end
 #yell
   # takes in a message
   # convert the message to uppercase
   # adds an exclamation point to the end of the message
   # returns the message
+  def yell(str)
+    str.upcase + "!"
+  end
 
-## STRETCH ##
+## wordETCH ##
 #to_telegram
   # takes in a message
   # replaces periods with ' STOP'
   # returns the updated message
-
+  def to_telegram(message)
+    message.gsub('.', ' STOP')
+  end
 
 #spell_out
   # takes in a string
   # converts the string to lowercase
   # returns the input string, with characters seperated by dashes
+  def spell_out(str)
+    str.downcase.split("").join("-")
+  end
+
 
 
 #seperate
