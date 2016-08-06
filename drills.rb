@@ -67,45 +67,55 @@ end
   # convert the message to uppercase
   # adds an exclamation point to the end of the message
   # returns the message
-  def yell(str)
-    str.upcase + "!"
-  end
+def yell(str)
+  str.upcase + "!"
+end
 
 ## wordETCH ##
 #to_telegram
   # takes in a message
   # replaces periods with ' STOP'
   # returns the updated message
-  def to_telegram(message)
-    message.gsub('.', ' STOP')
-  end
+def to_telegram(message)
+  message.gsub('.', ' STOP')
+end
 
-#spell_out
+  #pell_out
   # takes in a string
   # converts the string to lowercase
   # returns the input string, with characters seperated by dashes
-  def spell_out(str)
-    str.downcase.split("").join("-")
-  end
+def spell_out(str)
+  str.downcase.split("").join("-")
+end
 
 
 
-#seperate
+  #eperate
   # takes in a string
   # seperates characters with a custom seperator, when supplied with one
   # seperates characters with dashes (by default)
   # returns the modified string
+def seperate(str, seperator="-")
+  str.split("").join(seperator)
+end
+
 
 ## STRETCH ##
 #croon
   # seperates word characters with dashes
   # preserves whitespace between words
+def croon(str)
+  str.split(" ").map{|word| word.split("").join("-") }.join(" ")
+end
 
 #palindrome_word?
   # determines whether a single word is a palindrome
   # ignores case
   # returns true or false
-
+def palindrome_word?(str)
+  str = str.downcase.scan(/\w/)
+  str == str.reverse
+end
 
 ## SUPER STRETCH ##
 #palindrome_sentence?
@@ -113,6 +123,10 @@ end
   # ignores case
   # ignores whitespace
   # ignores punctuation
+  def palindrome_sentence?(str)
+    str = str.downcase.scan(/\w/)
+    str == str.reverse
+  end
 
 #is_vowel
   # takes in a string of one character
