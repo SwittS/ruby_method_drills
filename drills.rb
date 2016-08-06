@@ -123,16 +123,19 @@ end
   # ignores case
   # ignores whitespace
   # ignores punctuation
-  def palindrome_sentence?(str)
-    str = str.downcase.scan(/\w/)
-    str == str.reverse
-  end
+def palindrome_sentence?(str)
+  str = str.downcase.scan(/\w/)
+  str == str.reverse
+end
 
 #is_vowel
   # takes in a string of one character
   # determines whether the character is a vowel
   # ignores case
   # handles weird inputs gracefully
+def is_vowel(char)
+  char.is_a?(String) && !!char.match(/[aeiou]/i)
+end
 
 #add_period
   # takes in a string
@@ -140,6 +143,9 @@ end
   # does not add a period if one is already there
   # does not add a period if any form of terminal punctuation is present
   # returns the sentence
+def add_period(str)
+  "!?.".include?(str[-1]) ? str : str + "."
+end
 
 
 ###########################
