@@ -348,8 +348,25 @@ end
   # ignores case
   # ignores characters that are not in the sequence a-z
   # returns a hash with all the words and their counts
+def word_count(sentence)
+  word_counts = {}
+    sentence.split(" ").each do |word|
+      word = word.downcase.gsub(/[^a-z]/i, "")
+      if word_counts[word].nil?
+        word_counts[word] = 1
+      else
+        word_counts[word] += 1
+      end
+    end
+  word_counts
+end
 
 ## STRETCH ##
 #most_frequent_word
   # takes in a string
   # finds the word in a string that appears with the most frequency
+def most_frequent_word(sentence)
+  word_counts = word_count(sentence)
+  word_counts.empty? ? nil :
+  word_counts.invert.max[1]
+end
