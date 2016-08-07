@@ -263,15 +263,31 @@ end
   # returns false for non-integer decimals
   # returns false for Float::NAN
   # returns false for non-numbers
-
+  def is_integer?(num)
+    num.class == Fixnum || num.class == Bignum ||
+      ( num.is_a?(Float) && !num.nan? && num.to_i == num )
+  end
 #is_prime?
-  # takes in a number and checks if it's prime
+  # takes inum a number and checks if it's prime
   # returns false for non-integer decimals
   # returns false for numbers less than or equal to 1
   # returns false for numbers divisible by anything but 1 and themselves
   # returns true for prime numbers
   # Hint: google prime numbers!
-
+  def is_prime?(num)
+    if !is_integer?(num) || num <= 1
+      false
+    elsif num <= 1
+      false
+    else
+      (2..(num-1)).each do |n|
+        if num % n == 0
+          return false
+        end
+      end
+      true
+    end
+  end
 #primes_less_than
   # takes in a number
   # returns an empty array if there are no primes below num
