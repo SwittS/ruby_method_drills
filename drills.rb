@@ -210,15 +210,23 @@ end
 #select_every_even
   # takes in an array
   # returns a list of even-indexed items from the input
+def select_every_even(array)
+  array.select.with_index{ |item, index| item if index.even? }
+end
 
 #select_every_odd
   # takes in an array
   # returns a list of odd-indexed items
-
+  def select_every_odd(array)
+    array.select.with_index{ |item, index| item if index.odd? }
+  end
 #select_every_n
   # takes in an array
   # returns a list of items at an index evenly divisible by n
   # defaults to an n value of 1
+  def select_every_n(array, n=1)
+    array.select.with_index{ |item, index| item if index%n == 0 }
+  end
 
 ## STRETCH ##
 #compile_agenda
