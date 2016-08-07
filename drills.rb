@@ -311,7 +311,7 @@ end
   # calculates and returns the factorial of the input number
 def iterative_factorial(num)
   if num < 0 || !is_integer?(num)
-    return Float::NAN  # a constant meaning "Not a Number"
+    return Float::NAN
   end
   memo = 1
   (1..num).each do |i|
@@ -319,7 +319,6 @@ def iterative_factorial(num)
   end
   memo
 end
-
 
 ##############################
 #### MANIPULATING OBJECTS ####
@@ -329,6 +328,18 @@ end
   # counts how many times each character appears in a string
   # ignores case
   # returns the hash
+def character_count(str)
+  char_counts = {}
+  str.each_char do |char|
+    char = char.downcase
+    if char_counts[char].nil?
+      char_counts[char] = 1
+    else
+      char_counts[char] += 1
+    end
+  end
+  char_counts
+end
 
 ## STRETCH ##
 #word_count
