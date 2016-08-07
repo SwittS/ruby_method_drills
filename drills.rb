@@ -235,7 +235,11 @@ end
   # sorts items by priority ascending (low to high) by default
   # sort order can (optionally) be changed to priority descending
   # the bullet can (optionally) be changed to any symbol
-
+  def compile_agenda(agenda_items, order="DESC", bullet="*")
+    sorted_agenda_items = agenda_items.sort_by {|o| o[:priority] }
+    sorted_agenda_items.reverse! if order == "ASC"
+    sorted_agenda_items.map {|o| "#{bullet} #{o[:title]}"  }.join("\n")
+  end
 ##############################
 #### MANIPULATING NUMBERS ####
 ##############################
