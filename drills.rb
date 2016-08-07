@@ -155,10 +155,23 @@ end
   # takes in a string
   # counts the spaces in a string
   # returns number of spaces
+def count_spaces(str)
+  count = 0
+  space = " "
+  str.each_char do |char|
+    if char == space
+      count += 1
+    end
+  end
+  count
+end
 
 #string_lengths
   # takes in an array of strings
   # returns an array containing the lengths of the strings
+def string_lengths(array_of_strings)
+  array_of_strings.map {|x| x.size }
+end
 
 #remove_falsy_values
   # takes in a list
